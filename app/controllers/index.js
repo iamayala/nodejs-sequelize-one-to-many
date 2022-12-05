@@ -1,7 +1,6 @@
 const db = require("../models");
 const User = db.user;
 const Transaction = db.transaction;
-const Budget = db.budget;
 
 // create and save new user
 exports.createUser = (req, res) => {
@@ -184,76 +183,4 @@ exports.authenticate = async (req, res) => {
 	} else {
 		res.status(404).json({ status: 404, error: "User does not exist" });
 	}
-};
-
-// create a budget
-exports.createBudget = (req, res) => {
-	if (!req.body) {
-		res.status(400).send({
-			message: "Bad request",
-		});
-		return;
-	}
-
-	const budget = req.body;
-
-	const request = {
-		title: budget.title,
-		amount: budget.amount,
-		userId: budget.id,
-	};
-
-	Budget.create(request)
-		.then((data) => {
-			res.json({ status: 200, message: "Success", data });
-		})
-		.catch(() => {
-			res.status(500).json({ error: "An error occured" });
-		});
-};
-
-// update a budget
-exports.updateBudget = (req, res) => {
-	if (!req.body) {
-		res.status(400).send({
-			message: "Bad request",
-		});
-		return;
-	}
-
-	const budget = req.body;
-
-	const request = {
-		title: budget.title,
-		amount: budget.amount,
-		id: budget.id,
-	};
-
-	Budget.update(request, { where: { id: request.id } })
-		.then((data) => {
-			res.json({ status: 200, message: "Success", data });
-		})
-		.catch(() => {
-			res.status(500).json({ error: "An error occured" });
-		});
-};
-
-// delete a budget
-exports.deleteBudget = (req, res) => {
-	if (!req.body) {
-		res.status(400).send({
-			message: "Content can be placed here!",
-		});
-		return;
-	}
-
-	Budget.destroy({ where: { id: req.body.id } })
-		.then((data) => {
-			res.json({ status: 200, data });
-		})
-		.catch((err) => {
-			res
-				.status(500)
-				.send({ message: err.message || "An error occured creating user" });
-		});
 };
