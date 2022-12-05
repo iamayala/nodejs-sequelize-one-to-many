@@ -1,21 +1,23 @@
 {
-  "name": "nodejs-sequelize-one-to-many",
-  "version": "1.0.0",
-  "description": "Node.js Sequelize One to Many Relationship",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "nodejs",
-    "sequelize",
-    "one-to-many",
-    "association"
-  ],
-  "author": "bezkoder",
-  "license": "ISC",
-  "dependencies": {
-    "mysql2": "^2.1.0",
-    "sequelize": "^5.21.6"
-  }
+	"name": "bowler-bank-backend",
+	"version": "1.0.0",
+	"description": "Web Tech Project",
+	"main": "server.js",
+	"scripts": {
+		"start": "nodemon server.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "sergemayala",
+	"license": "ISC",
+	"dependencies": {
+		"bcrypt": "^5.1.0",
+		"body-parser": "^1.20.1",
+		"cors": "^2.8.5",
+		"express": "^4.18.2",
+		"moment": "^2.29.4",
+		"mysql2": "^2.1.0",
+		"nodemon": "^2.0.20",
+		"sequelize": "^5.21.6"
+	}
 }
